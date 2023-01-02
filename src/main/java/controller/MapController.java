@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import dto.PageDTO;
 import service.MapService;
 
 //http://localhost:8090/myapp/list.do
+//http://localhost:8090/myapp/detailpagemap.do
 
 @Controller
 public class MapController {
@@ -49,9 +51,10 @@ public class MapController {
 		return mav;
 	}// listMethod()
 	
-	@ResponseBody
-	@RequestMapping(value = "/detailpagemap.do", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/detailpagemap.do", method=RequestMethod.GET)
 	public ModelAndView detailpagemapMethod(String latitude, String longitude, ModelAndView mav) {
+		mav.addObject("dto", service.f_coordindate(latitude, longitude));
 		mav.addObject("latitude",latitude);
 		mav.addObject("longitude",longitude);
 		mav.setViewName("detailpagemap");

@@ -8,8 +8,7 @@
 		SELECT count(*) FROM res_test
 	</select>
 
-	<select id="res_coordinate" parameterType="java.util.HashMap"
-		resultType="dto.MapDTO">
+	<select id="res_coordinate" parameterType="java.util.HashMap" resultType="dto.MapDTO">
 		SELECT latitude, longitude
 		FROM res_test
 	</select>

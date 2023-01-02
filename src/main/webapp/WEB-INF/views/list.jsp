@@ -8,20 +8,18 @@
 <title>맛집리스트 페이지</title>
 </head>
 <body>
-	<form method="post" action="detailpagemap.jsp">
-		<table>
+	<table>
+		<tr>
+			<th>맛집이름</th>
+		</tr>
+		<c:forEach items="${aList}" var="dto">
 			<tr>
-				<th>맛집이름</th>
+				<td><c:url var="path" value="detailpagemap.do">
+						<c:param name="latitude" value="${dto.latitude}" />
+						<c:param name="longitude" value="${dto.longitude}" />
+					</c:url> <a href="${path}">${dto.res}</a></td>
 			</tr>
-			<c:forEach items="${aList}" var="dto">
-				<tr>
-					<td><c:url var="path" value="detailpagemap">
-							<c:param name="latitude" value="${dto.latitude}" />
-							<c:param name="longitude" value="${dto.longitude}" />
-						</c:url> <a href="${path}">${dto.res}</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</form>
+		</c:forEach>
+	</table>
 </body>
 </html>

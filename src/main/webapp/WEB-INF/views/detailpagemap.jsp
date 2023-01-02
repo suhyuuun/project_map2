@@ -12,12 +12,8 @@
 </head>
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#list").click(function(){
-	$('#frm').attr("action","list.do").submit();	
-	});
-	
-	var latitude = ${MapDTO.latitude};
-	var longitude = ${MapDTO.longitude};
+	var latitude = '';
+	var longitude = '';
 	// 이미지 지도에서 마커가 표시될 위치입니다 
 	var markerPosition = new kakao.maps.LatLng(latitude, longitude);
 
@@ -44,8 +40,9 @@ $(document).ready(function(){
 	<!-- 이미지 지도를 표시할 div 입니다 -->
 	<div id="staticMap" style="width: 600px; height: 350px;"></div>
 
-	<form name="frm" id="frm" method="get">
-			<input type="button" id="list" value="리스트" />
+	<form method="get" action="detailpagemap">
+		<input type='hidden' name='latitude' value='${"dto.latitude"}' /> 
+		<input type='hidden' name='longitude' value='${"dto.longitude"}' />
 	</form>
 </body>
 </html>
