@@ -1,15 +1,10 @@
 package controller;
 
-import java.io.OutputStream;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import dto.MapDTO;
@@ -52,11 +47,8 @@ public class MapController {
 	}// listMethod()
 	
 
-	@RequestMapping(value = "/detailpagemap.do", method=RequestMethod.GET)
+	@RequestMapping(value = "/detailpagemap.do")
 	public ModelAndView detailpagemapMethod(String latitude, String longitude, ModelAndView mav) {
-		mav.addObject("dto", service.f_coordindate(latitude, longitude));
-//		mav.addObject("latitude",latitude);
-//		mav.addObject("longitude",longitude);
 		mav.setViewName("detailpagemap");
 		return mav;
 	}//detailpagemapMethod()
