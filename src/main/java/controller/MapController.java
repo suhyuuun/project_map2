@@ -55,8 +55,8 @@ public class MapController {
 	@RequestMapping(value = "/detailpagemap.do", method=RequestMethod.GET)
 	public ModelAndView detailpagemapMethod(String latitude, String longitude, ModelAndView mav) {
 		mav.addObject("dto", service.f_coordindate(latitude, longitude));
-		mav.addObject("latitude",latitude);
-		mav.addObject("longitude",longitude);
+//		mav.addObject("latitude",latitude);
+//		mav.addObject("longitude",longitude);
 		mav.setViewName("detailpagemap");
 		return mav;
 	}//detailpagemapMethod()
