@@ -45,9 +45,6 @@ $(document).ready(function(){
 	<div id="staticMap" style="width: 600px; height: 350px;"></div>
 
 	<form name="frm" id="frm" method="get">
-<!-- 		<input type="hidden" name="latitude" id="latitude" -->
-<%-- 			value="${dto.latitude}" /> <input type="hidden" name="longitude" --%>
-<%-- 			id="longitude" value="${dto.longitude}" /> --%>
 			<input type="button" id="list" value="리스트" />
 	</form>
 </body>

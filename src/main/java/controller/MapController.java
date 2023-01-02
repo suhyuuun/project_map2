@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import dto.MapDTO;
@@ -30,7 +31,7 @@ public class MapController {
 		this.service = service;
 	}
 
-	@RequestMapping("/list.do")
+	@RequestMapping(value = "/list.do", method = RequestMethod.GET)
 	public ModelAndView listMethod(PageDTO pv, ModelAndView mav) {
 		int totalRecord = service.countProcess();
 		if (totalRecord >= 1) {
@@ -48,16 +49,15 @@ public class MapController {
 		return mav;
 	}// listMethod()
 	
-//	@RequestMapping(value = "/detailpagemap.do", method = RequestMethod.GET)
-//	public ModelAndView detailpagemapMethod(String latitude, String longitude, ModelAndView mav) {
-//		mav.addObject("latitude",latitude);
-//		mav.addObject("longitude",longitude);
-//		mav.setViewName("detailpagemap");
-//		return mav;
-//	}//detailpagemapMethod()
+	@ResponseBody
+	@RequestMapping(value = "/detailpagemap.do", method = RequestMethod.POST)
+	public ModelAndView detailpagemapMethod(String latitude, String longitude, ModelAndView mav) {
+		mav.addObject("latitude",latitude);
+		mav.addObject("longitude",longitude);
+		mav.setViewName("detailpagemap");
+		return mav;
+	}//detailpagemapMethod()
 
-//	public detailpagemapMethod() {
-//		return ;
-//	}
+
 	
 }
