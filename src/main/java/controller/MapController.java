@@ -36,7 +36,6 @@ public class MapController {
 				this.currentPage = 1;
 			else
 				this.currentPage = pv.getCurrentPage();
-
 			this.pdto = new PageDTO(currentPage, totalRecord);
 			List<MapDTO> aList = service.listProcess(this.pdto);
 			mav.addObject("aList", aList);
